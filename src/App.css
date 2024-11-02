@@ -1,0 +1,166 @@
+.App{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(43, 50, 13);
+    /* background-color: rgba(55, 55, 230, 0.831); */
+    /* background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+    /* background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%); */
+    /* background-image: linear-gradient( 135deg, #FFA8A8 10%, #FCFF00 100%); */
+    /* background-image: radial-gradient( circle 815px at 23.4% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2% ); */
+    background-image: linear-gradient( 109.6deg,  rgba(209,0,116,1) 11.2%, rgba(110,44,107,1) 91.1% );
+    /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% ); */
+}
+
+.line{
+    height: 5%;
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="range"] {
+    height: 7px;
+    width: 60%;
+    background:rgb(122, 122, 122);
+    color: #4caf50;
+    cursor: pointer;
+    border-radius: 20000000000000px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none; 
+    width: 15px;
+    height: 15px;
+    background: #4caf50; 
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+.buttons{
+    width: 13vw;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    border-style: none;
+    background-color:inherit;
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 28px;
+    transition: all ease-out 300ms;
+}
+
+
+button:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+.menu{
+    height: 100vh;
+    width: 33vw;
+    color: white;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+
+}
+
+.menuBox{
+    /* border: 1px solid white; */
+    /* background-color:white; */
+    background-color:rgba(24, 24, 24, 0.427);
+    border-radius: 30px;
+    height: 90%;
+    width: 75%;
+    /* box-shadow: 4px 4px 40px rgba(4, 4, 4, 0.847); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4%;
+    /* color:white; */
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid white; */
+    cursor: pointer;
+    margin: 1%;
+    width:80%;
+}
+
+#liimg1{
+    height: 90%;
+    width: 22%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 30px rgb(0, 0, 0);
+}
+
+#gif{
+    height: 100%;
+    width: 25%;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0px 0px 0px black;
+
+}
+
+.active{
+    color:rgb(178, 236, 153);
+}
+
+.active #gif{
+    transition: all 2s ease-in;
+    opacity: 1;
+    box-shadow: 0px 0px 0px black;
+}
+
+#gifactive{
+    height: 100%;
+    width: 20%;
+    border-radius: 50%;
+    overflow-y: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+.menuBox input{
+    margin-top: 30px;
+    width: 80%;
+    height: 25px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(128, 128, 128, 0.749);
+    padding-left: 5%;
+    color: white;
+    font-size: large;
+    font-weight: 10;
+    outline: none;
+}
+
+.menuBox ::-webkit-input-placeholder{
+    color: white;
+    font-size: 15px;
+}
+
+.extra{
+    width: 33vw;
+}
