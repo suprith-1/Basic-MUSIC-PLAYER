@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Logo from './components/Logo'
 import songs from './components/songs/songs';
@@ -19,7 +19,7 @@ function App() {
   const [i,seti]=useState(-1);
   const [search,setSearch]=useState("");
   const audio=useRef(null);
-  const range=useRef(0);
+  const range=useRef(null);
   const [isplaying,setispalying]=useState(false);
   function next(){
     if(i+1>=songs.length){
@@ -46,7 +46,7 @@ function App() {
       const duration = audio.current.duration || 0;
       const percentage = (currentTime / duration) * 100;
       if (range.current) {
-        range.current.value = percentage;
+        range.current.value = percentage.toString();
       }
     }
   };
@@ -75,6 +75,12 @@ function App() {
     setispalying(true); 
     // audio.current.play();
   };
+
+  useEffect(()=>{
+    if(range.current){
+      range.current.value="0";
+    }
+    },[i]);
 
   const filtered=songs.filter(song => song.title.toLowerCase().includes(search.toLowerCase()))
 
@@ -114,10 +120,10 @@ function App() {
               <Logo imgsrc={songs[i].imgsrc} name={songs[i].title} artist={songs[i].artist}/>
             </div> 
             <div className='line'>
-              <input type="range" ref={range} min="0" max="100" step="1" value={0} onChange={changeRange}/>
+              <input type="range" ref={range} min="0" max="100" step="1" defaultValue="0" onChange={changeRange}/>
             </div>
             <div className='control'>
-              <audio src={songs[i].audsrc} ref={audio} autoPlay onEnded={next} onTimeUpdate={handleTimeUpdate}></audio>
+              <audio src={songs[i].audsrc} ref={audio} autoPlay onEnded={next} onLoadedMetadata={handleTimeUpdate} onTimeUpdate={handleTimeUpdate}></audio>
               <div className='buttons'>  
                 <button onClick={prev}>◀◀</button>
                 <button onClick={play}>{isplaying?'❚❚':'▶'}</button>
