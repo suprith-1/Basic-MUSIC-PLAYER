@@ -33,7 +33,7 @@ function App() {
     if(i-1<0){
       return;
     }
-    setispalying(!isplaying);
+    if(isplaying===false) setispalying(!isplaying);
     seti(i-1);
   }
   function play(){
